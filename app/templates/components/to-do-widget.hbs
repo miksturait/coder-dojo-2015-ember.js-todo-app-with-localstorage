@@ -1,0 +1,7 @@
+{{add-todo onAdd=(action "addTodo")}}
+
+<ul>
+    {{#each todos as |todo|}}
+      <li {{action "removeTodo" todo}}>{{ todo.text }}</li>
+    {{/each}}
+</ul>
