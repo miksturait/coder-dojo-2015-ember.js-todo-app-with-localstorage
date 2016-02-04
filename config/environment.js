@@ -4,6 +4,8 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'to-do-app',
     environment: environment,
+    contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
+    firebase: 'https://resplendent-inferno-6975.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
