@@ -37,6 +37,7 @@
     "ember-export-application-global": "^1.0.4",
     "ember-local-storage": "1.0.0",
     "ember-resolver": "^2.0.3",
-    "emberfire": "1.6.4"
+    "emberfire": "1.6.4",
+    "torii": "0.6.1"
   }
 }
