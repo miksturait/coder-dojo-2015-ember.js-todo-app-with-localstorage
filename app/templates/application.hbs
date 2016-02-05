@@ -1,11 +1,13 @@
-{{#if session.isAuthenticated}}
-    Logged in as {{session.currentUser.name}}
-    <img src={{session.currentUser.imageUrl}} height="20"/>
-    <button {{action "signOut"}}>Sign out</button>
-{{else}}
-    <button {{action "signIn" "google"}}>Sign in</button>
-{{/if}}
-
-<h2 id="title">To-do List!</h2>
+{{#paper-toolbar}}
+    <div class="md-toolbar-tools">
+      {{#if session.isAuthenticated}}
+        <img src={{session.currentUser.imageUrl}} height="20" style="margin: 0.3em 1em 0 1em;"/>
+        <span>{{session.currentUser.name}}</span>
+        {{#paper-button raised=true primary=true warn=true action="signOut"}}Sign out{{/paper-button}}
+      {{else}}
+        {{#paper-button raised=true warn=true action="signIn"}}<span>Sign In</span>{{/paper-button}}
+      {{/if}}
+    </div>
+{{/paper-toolbar}}
 
 {{outlet}}
