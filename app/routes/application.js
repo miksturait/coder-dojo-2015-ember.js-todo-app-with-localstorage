@@ -6,6 +6,10 @@ export default Ember.Route.extend({
     });
   },
 
+  model() {
+    return this.store.findAll('user');
+  },
+
   actions: {
     signIn(provider) {
       this.get("session").open("firebase", {provider: provider});
