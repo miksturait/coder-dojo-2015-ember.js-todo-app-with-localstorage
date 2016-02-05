@@ -6,21 +6,9 @@ export default Ember.Route.extend({
     });
   },
 
-  findOrCreateUser(data) {
-    this.store.find('user', data.uid).then(
-      function (user) {
-        user.set('name', data.currentUser.displayName);
-        user.set('imageUrl', data.currentUser.profileImageURL);
-        user.save();
-      },
-      () => this.store.createRecord('user',
-        {id: data.uid, name: data.currentUser.displayName, imageUrl: data.currentUser.profileImageURL}).save()
-    );
-  },
-
   actions: {
     signIn(provider) {
-      this.get("session").open("firebase", {provider: provider}).then((data) => this.findOrCreateUser(data));
+      this.get("session").open("firebase", {provider: provider});
     },
     signOut() {
       this.get("session").close();
