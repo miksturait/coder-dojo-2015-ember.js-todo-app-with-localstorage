@@ -4,7 +4,10 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'to-do-app',
     environment: environment,
-    contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
+    contentSecurityPolicy: {
+      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
+      'font-src': "'self'  http://fonts.gstatic.com"
+    },
     firebase: 'https://todolist-miksturait.firebaseio.com/',
     torii: {
       sessionServiceName: 'session'
