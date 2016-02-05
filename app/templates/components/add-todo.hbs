@@ -1,4 +1,4 @@
-
-<form {{action "submit" on="submit"}}>
-    {{input value=text}} <button type="submit" >OK</button>
+<form {{action "submit" on="submit"}} style="padding-top: 2em;">
+  {{paper-input label="Enter Your Todo (required)" type="text" value=text icon="add" icon-class="add" required=true hideAllMessages=true}}
 </form>
+
