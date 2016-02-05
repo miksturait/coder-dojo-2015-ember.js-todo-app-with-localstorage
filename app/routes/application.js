@@ -1,12 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  store: Ember.inject.service(),
-
   beforeModel() {
     return this.get("session").fetch().catch(function () {
     });
   },
+
   findOrCreateUser(data) {
     this.store.find('user', data.uid).then(
       function (user) {
