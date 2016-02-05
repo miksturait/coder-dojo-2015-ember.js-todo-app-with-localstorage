@@ -1,7 +1,7 @@
 {{#paper-toolbar}}
     <div class="md-toolbar-tools">
       {{#if session.isAuthenticated}}
-        <img src={{session.currentUser.imageUrl}} height="20" style="margin: 0.3em 1em 0 1em;"/>
+        <img src={{session.currentUser.imageUrl}} height="40" style="margin: 0 1em 0 1em;"/>
         <span>{{session.currentUser.name}}</span>
         {{#paper-button raised=true primary=true warn=true action="signOut"}}Sign out{{/paper-button}}
       {{else}}
