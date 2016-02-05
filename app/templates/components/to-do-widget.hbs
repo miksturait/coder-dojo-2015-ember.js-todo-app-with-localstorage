@@ -1,11 +1,13 @@
 {{add-todo onAdd=(action "addTodo")}}
 
-<ul style="padding-left: 0;">
-    {{#each todos as |todo|}}
-      <li style="list-style: none;" {{action "completeTodo" todo}}>
-        {{input disabled=true checked=todo.done action="toogleTodo todo" type='checkbox'}}
-        <img src={{todo.user.imageUrl}} height="16" />
-        {{todo.text}}
-      </li>
-    {{/each}}
-</ul>
+{{#paper-list}}
+  {{#paper-subheader class="md-no-sticky"}}Our Todos{{/paper-subheader}}
+
+  {{#each todos as |todo|}}
+    {{#paper-item param=todo action="completeTodo"}}
+      <img style="margin-right: 1em;" src={{todo.user.imageUrl}} height="16"/>
+      {{paper-checkbox checked=todo.done}}
+      <p>{{todo.text}}</p>
+    {{/paper-item}}
+  {{/each}}
+{{/paper-list}}

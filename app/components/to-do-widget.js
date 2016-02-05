@@ -20,9 +20,9 @@ export default Ember.Component.extend({
       let session = this.get('session');
 
       if (session.get('isAuthenticated')) {
-        todo.set('done', true);
         todo.save();
       } else {
+        todo.toggleProperty('done');
         alert('please log in :-)');
         return false;
       }
