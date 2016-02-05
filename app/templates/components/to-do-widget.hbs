@@ -1,7 +1,11 @@
 {{add-todo onAdd=(action "addTodo")}}
 
-<ul>
+<ul style="padding-left: 0;">
     {{#each todos as |todo|}}
-      <li {{action "removeTodo" todo}}>{{ todo.text }}</li>
+      <li style="list-style: none;" {{action "completeTodo" todo}}>
+        {{input disabled=true checked=todo.done action="toogleTodo todo" type='checkbox'}}
+        <img src={{todo.user.imageUrl}} height="16" />
+        {{todo.text}}
+      </li>
     {{/each}}
 </ul>

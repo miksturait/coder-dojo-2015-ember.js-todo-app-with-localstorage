@@ -5,17 +5,27 @@ export default Ember.Component.extend({
   session: Ember.inject.service(),
   actions: {
     addTodo(text){
-      if (this.get('session.isAuthenticated')) {
-        this.get('store').createRecord('todo', {text: text}).save();
-        return(true);
+      let session = this.get('session'),
+        store = this.get('store');
+
+      if (session.get('isAuthenticated')) {
+        store.createRecord('todo', {text: text, user: session.get('currentUser')}).save();
+        return true;
       } else {
         alert('please log in :-)');
-        return(false);
+        return false;
       }
     },
-    removeTodo(todo) {
-      todo.deleteRecord();
-      todo.save();
+    completeTodo(todo) {
+      let session = this.get('session');
+
+      if (session.get('isAuthenticated')) {
+        todo.set('done', true);
+        todo.save();
+      } else {
+        alert('please log in :-)');
+        return false;
+      }
     }
   }
 });
