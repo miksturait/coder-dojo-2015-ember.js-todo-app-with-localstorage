@@ -1,7 +1,7 @@
-{{todo-list/add-todo addTodo=(action "addTodo")}}
+{{todo-list/add-todo addTodo=(action "addTodo") }}
 
 <ul>
   {{#each todos as |todo|}}
-      <li>{{todo.description}}</li>
+      <li {{action "completeTodo" todo }}>{{todo.description}}</li>
   {{/each}}
 </ul>
