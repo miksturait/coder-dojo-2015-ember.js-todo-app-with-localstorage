@@ -6,13 +6,15 @@ export default Ember.Component.extend({
     addTodo(description) {
       let store = this.get('store');
 
-      store.createRecord('todo', {description: description});
+      store.createRecord('todo', {description: description}).save();
       return true;
     },
     completeTodo(todo) {
       todo.deleteRecord();
-      todo.save()
+      todo.save();
     }
 
   }
 });
+
+
