@@ -1,3 +1,7 @@
 {{todo-list/add-todo addTodo=(action "addTodo")}}
 
-{{yield}}
+<ul>
+  {{#each todos as |todo|}}
+      <li>{{todo.description}}</li>
+  {{/each}}
+</ul>
